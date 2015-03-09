@@ -8,7 +8,9 @@ class PsyshServiceFactory implements FactoryInterface
 {
     public function createService(\Zend\ServiceManager\ServiceLocatorInterface $sl)
     {
-        $isEnable = $sl->get("Config")['psysh']['enable'];
+        $config = $sl->get("Config");
+        $isEnable = $config['psysh']['enable'];
+
         return new PsyshService($isEnable);
     }
 }
