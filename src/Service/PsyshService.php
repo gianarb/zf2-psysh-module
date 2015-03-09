@@ -13,7 +13,8 @@ class PsyshService
     public function breakpoint()
     {
         if ($this->enable) {
-            eval(\Psy\sh());
+            return \Psy\sh();
         }
+        return null;
     }
 }

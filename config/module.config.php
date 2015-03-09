@@ -13,7 +13,7 @@ return array(
     ),
     "service_manager" => array(
         "factories" => array(
-            "psysh" => "Psysh\Service\PsyshServiceFactory"
+            "psysh" => "PsyshModule\Service\PsyshServiceFactory"
         )
     )
 );
