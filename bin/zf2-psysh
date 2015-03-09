@@ -4,7 +4,7 @@ use Psy\Shell;
 use Zend\Mvc\Application;
 use Psy\Configuration;
 
-chdir(__DIR__."/../../ZendSkeletonApplication/");
+chdir(__DIR__);
 $previousDir = '.';
 while (!file_exists('config/application.config.php')) {
     $dir = dirname(getcwd());
