@@ -1,0 +1,34 @@
+{
+    "name": "gianarb/psysh-module",
+    "description": "Zend Framework 2 psysh integration",
+    "require": {
+        "psy/psysh": "0.4.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5",
+        "zendframework/zendframework": ">=2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gianluca Arbezzano",
+            "email": "gianarb92@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PsyshModule\\": "./src"
+        },
+        "autoload": [
+          "./Module.php"
+        ]
+    },
+    "bin": [
+        "bin/zf2-psysh"
+    ],
+    "autoload-dev": {
+        "psr-4": {
+            "PsyshModuleTest\\": "./tests"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+use Psy\Shell;
+use Zend\Mvc\Application;
+
+chdir(__DIR__);
+$previousDir = '.';
+while (!file_exists('config/application.config.php')) {
+    $dir = dirname(getcwd());
+    if ($previousDir === $dir) {
+        throw new RuntimeException(
+            'Unable to locate "config/application.config.php": ' .
+            'is PsyshModule in a subdir of your application skeleton?'
+        );
+    }
+    $previousDir = $dir;
+    chdir($dir);
+}
+if (is_readable('init_autoloader.php')) {
+    include_once 'init_autoloader.php';
+} elseif (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    include_once __DIR__ . '/../vendor/autoload.php';
+} elseif (file_exists(__DIR__ . '/../../../autoload.php')) {
+    include_once __DIR__ . '/../../../autoload.php';
+} else {
+    throw new RuntimeException('Error: vendor/autoload.php could not be found. Did you run php composer.phar install?');
+}
+$application = Application::init(include 'config/application.config.php');
+extract(Shell::debug(array('application' => $application)));
