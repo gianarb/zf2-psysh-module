@@ -19,7 +19,7 @@
         "psr-4": {
             "PsyshModule\\": "./src"
         },
-        "autoload": [
+        "classmap": [
           "./Module.php"
         ]
     },

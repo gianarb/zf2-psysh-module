@@ -5,9 +5,15 @@ class PsyshService
 {
     private $enable = false;
 
-    public function __construct($enable, $options)
+    public function __construct($enable)
     {
         $this->enable = $enable;
-        $this->options = $options;
+    }
+
+    public function breakpoint()
+    {
+        if ($this->enable) {
+            eval(\Psy\sh());
+        }
     }
 }

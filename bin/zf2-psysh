@@ -2,8 +2,9 @@
 <?php
 use Psy\Shell;
 use Zend\Mvc\Application;
+use Psy\Configuration;
 
-chdir(__DIR__);
+chdir(__DIR__."/../../ZendSkeletonApplication/");
 $previousDir = '.';
 while (!file_exists('config/application.config.php')) {
     $dir = dirname(getcwd());
@@ -26,4 +27,10 @@ if (is_readable('init_autoloader.php')) {
     throw new RuntimeException('Error: vendor/autoload.php could not be found. Did you run php composer.phar install?');
 }
 $application = Application::init(include 'config/application.config.php');
-extract(Shell::debug(array('application' => $application)));
+$application->bootstrap();
+
+$psyConfiguration = new Configuration($application->getConfig()['psysh']);
+$psyShell = new Shell($psyConfiguration);
+$psyShell->setScopeVariables(array("application" => $application));
+$psyShell->run();
+extract($psyShell->getScopeVariables());
