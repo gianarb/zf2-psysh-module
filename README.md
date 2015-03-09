@@ -1,4 +1,6 @@
 # PsyshModule
+[![Build Status](https://travis-ci.org/gianarb/zf2-psysh-module.svg?branch=master)](https://travis-ci.org/gianarb/zf2-psysh-module) [![Dependency Status](https://www.versioneye.com/user/projects/54fe1c144a10649b1b000031/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54fe1c144a10649b1b000031) [![Code Climate](https://codeclimate.com/github/gianarb/zf2-psysh-module/badges/gpa.svg)](https://codeclimate.com/github/gianarb/zf2-psysh-module)  
+
 Integration between [psysh](https://github.com/bobthecow/psysh) and [ZF2](https://github.com/zendframework/zf2)  
 The best way to debug your cli command!
 
