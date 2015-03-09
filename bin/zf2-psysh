@@ -31,6 +31,6 @@ $application->bootstrap();
 
 $psyConfiguration = new Configuration($application->getConfig()['psysh']);
 $psyShell = new Shell($psyConfiguration);
-$psyShell->setScopeVariables(array("application" => $application));
+$psyShell->setScopeVariables($application->run());
 $psyShell->run();
 extract($psyShell->getScopeVariables());

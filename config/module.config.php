@@ -10,5 +10,10 @@ return array(
             'useReadline' => false,
             'requireSemicolons' => false,
         )
+    ),
+    "service_manager" => array(
+        "factories" => array(
+            "psysh" => "Psysh\Service\PsyshServiceFactory"
+        )
     )
 );
